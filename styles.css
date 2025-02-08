@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+    --sweet-pink: rgba(255, 105, 180, 0.8);
+    --sweet-purple: rgba(147, 112, 219, 0.8);
+    --dirty-pink: rgba(215, 128, 128, 0.8);
+    --background-color: rgba(255, 240, 245, 0.9);
+    --text-color: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--sweet-pink), var(--sweet-purple));
+    opacity: 0.1;
+    z-index: -1;
+    animation: backgroundMove 15s ease infinite;
+}
+
+@keyframes backgroundMove {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.1) rotate(180deg); }
+}
+
+.quiz-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(215, 128, 128, 0.2);
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-out;
+    border: 2px solid var(--dirty-pink);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    color: var(--sweet-purple);
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(215, 128, 128, 0.2);
+}
+
+.question {
+    margin-bottom: 1.5rem;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.question p {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--sweet-pink);
+}
+
+.options label {
+    display: block;
+    margin: 0.5rem 0;
+    padding: 0.75rem 1rem;
+    background-color: rgba(255, 105, 180, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--sweet-pink);
+}
+
+.options label:hover {
+    background-color: var(--sweet-pink);
+    color: white;
+    transform: translateX(10px);
+    box-shadow: 0 4px 6px rgba(215, 128, 128, 0.3);
+}
+
+.options label input {
+    margin-right: 10px;
+}
+
+#navigation {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    background-color: var(--sweet-purple);
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 0 0.5rem;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--sweet-pink);
+    transform: scale(1.05);
+}
+
+button:disabled {
+    background-color: rgba(189, 195, 199, 0.7);
+    cursor: not-allowed;
+    transform: scale(1);
+}
+
+#results {
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--sweet-purple);
+}
+
+#feedback {
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+footer {
+    margin-top: 2rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 800px;
+    width: 90%;
+    border: 1px solid var(--dirty-pink);
+}
+
+footer a {
+    color: var(--sweet-pink);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--sweet-purple);
+    text-decoration: underline;
+}
